@@ -13,10 +13,12 @@ pipeline {
             }
         }
     }
-    post { 
-        success { 
-            sh 'docker build -t friendlyhello:04121816 .'
-            sh 'docker push sudo docker push registry.cn-hangzhou.aliyuncs.com/dcdev/friendlyhello:04121816'
-        }
-    }
 }
+
+node {
+    checkout scm
+
+    def customImage = docker.build("friendlyhello:04121816")
+    customImage.push()
+}
+
