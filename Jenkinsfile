@@ -16,9 +16,11 @@ pipeline {
 }
 
 node {
-    checkout scm
+    /* checkout scm */
 
-    def customImage = docker.build("friendlyhello:04121816")
-    customImage.push()
+    docker.withRegistry('https://registry.cn-hangzhou.aliyuncs.com', '922d9961-34d9-4811-bb64-3c2dd10e232e') {
+        def customImage = docker.build("friendlyhello:04121816")
+        customImage.push()
+    }
 }
 
