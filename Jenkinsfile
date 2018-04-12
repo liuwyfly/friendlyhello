@@ -15,8 +15,10 @@ pipeline {
         stage('push_docker') {
             steps {
                 echo 'push docker image'
-                dkImage = docker.build('friendlyhello:04121814')
-                dkImage.push()
+                script {
+                    def dkImage = docker.build('friendlyhello:04121814')
+                    dkImage.push()
+                }
             }
         }
     }
