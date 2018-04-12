@@ -12,14 +12,11 @@ pipeline {
                 echo 'get code and test'
             }
         }
-        stage('push_docker') {
-            steps {
-                echo 'push docker image'
-                script {
-                    def dkImage = docker.build('friendlyhello:04121814')
-                    dkImage.push()
-                }
-            }
+    }
+    post { 
+        success { 
+            sh 'docker build -t friendlyhello:04121816 .'
+            sh 'docker push sudo docker push registry.cn-hangzhou.aliyuncs.com/dcdev/friendlyhello:04121816'
         }
     }
 }
