@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'test/jdk8:20180329-02' } }
+    agent { docker { image 'dcdev/python:2.7-slim' } }
     environment {
         APP_NAME='gjqspecialnodelete'
     }
