@@ -1,8 +1,10 @@
 pipeline {
     agent { 
-        docker { image 'dcdev/python:2.7-slim' }
         node { label 'a05' }
+        docker { 
+            image 'dcdev/python:2.7-slim' 
         }
+    }
     environment {
         APP_NAME='gjqspecialnodelete'
     }
