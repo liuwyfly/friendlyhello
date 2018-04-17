@@ -1,5 +1,8 @@
 pipeline {
-    agent { docker { image 'dcdev/python:2.7-slim' } }
+    agent { 
+        docker { image 'dcdev/python:2.7-slim' }
+        node { label 'a05' }
+        }
     environment {
         APP_NAME='gjqspecialnodelete'
     }
@@ -15,7 +18,7 @@ pipeline {
     }
 }
 
-node {
+node('a05') {
     /* checkout scm */
 
     stage('build_push_image') {
