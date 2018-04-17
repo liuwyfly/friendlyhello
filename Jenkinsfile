@@ -1,10 +1,8 @@
 pipeline {
-    agent { 
-        node { label 'a05' }
-    }
     agent {
         docker { 
-            image 'dcdev/python:2.7-slim' 
+            image 'dcdev/python:2.7-slim'
+            label 'a05'
         }
     }
     environment {
