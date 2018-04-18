@@ -30,7 +30,7 @@ node('a05') {
         ).trim()
 
         echo "${MYDATE}"
-        docker.withRegistry('https://registry.cn-hangzhou.aliyuncs.com', '922d9961-34d9-4811-bb64-3c2dd10e232e') {
+        docker.withRegistry('https://registry.cn-hangzhou.aliyuncs.com', '2825ee2d-9fdb-462f-9b2f-669877764af2') {
         def customImage = docker.build("dcdev/friendlyhello:${MYDATE}-${env.BUILD_ID}")
         customImage.push()
         }
