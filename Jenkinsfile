@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker { 
             image 'dcdev/python:2.7-slim'
-            label 'a05'
         }
     }
     environment {
@@ -20,7 +19,7 @@ pipeline {
     }
 }
 
-node('a05') {
+node() {
     /* checkout scm */
 
     stage('build_push_image') {
