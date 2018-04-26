@@ -8,6 +8,9 @@ pipeline {
         APP_NAME='gjqspecialnodelete'
     }
     stages {
+        stage('list_env') {
+            sh 'printenv'
+        }
         stage('get_code') {
             when{
                 branch 'master'
