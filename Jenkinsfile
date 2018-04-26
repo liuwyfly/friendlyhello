@@ -40,7 +40,7 @@ node() {
         echo "${env.BRANCH_NAME}"
 
         docker.withRegistry('https://registry.cn-hangzhou.aliyuncs.com', '2825ee2d-9fdb-462f-9b2f-669877764af2') {
-        def customImage = docker.build("dcdev/friendlyhello-${env.BRANCH_NAME}:${MYDATE}-${env.BUILD_ID}")
+        def customImage = docker.build("dcdev/friendlyhello:${env.BRANCH_NAME}-${MYDATE}-${env.BUILD_ID}")
         customImage.push()
         }
     }
