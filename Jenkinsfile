@@ -9,7 +9,9 @@ pipeline {
     }
     stages {
         stage('list_env') {
-            sh 'printenv'
+            steps{
+                sh 'printenv'
+            }
         }
         stage('get_code') {
             when{
