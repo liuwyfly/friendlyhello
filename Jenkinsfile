@@ -35,7 +35,14 @@ node() {
         ).trim()
 
         echo "${MYDATE}"
-        echo "${env.GIT_BRANCH}"
+
+        def MYBRANCH = sh(
+            script: 'echo "${env.GIT_BRANCH}"',
+            returnStdout: true
+        )
+
+        echo "${MYBRANCH}"
+
         docker.withRegistry('https://registry.cn-hangzhou.aliyuncs.com', '2825ee2d-9fdb-462f-9b2f-669877764af2') {
         def customImage = docker.build("dcdev/friendlyhello-${env.GIT_BRANCH}:${MYDATE}-${env.BUILD_ID}")
         customImage.push()
