@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('list_env') {
             steps{
-                echo "${env.GIT_BRANCH}""
+                echo "${env.GIT_BRANCH}"
                 sh 'printenv'
             }
         }
